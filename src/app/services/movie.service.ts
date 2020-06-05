@@ -10,6 +10,7 @@ import IMovieService from './IMovieService';
 export class MovieService implements IMovieService{
 
   movieList: Subject<Movie[]> = new Subject<Movie[]>();
+  singleMovie: Subject<Movie> = new Subject<Movie>();
 
   constructor(private http: HttpClient) { }
 
@@ -31,5 +32,21 @@ export class MovieService implements IMovieService{
 
     });
   }
+
+  getSingleMovie(id: string){
+    this.http.get(`https://medieinstitutet-wie-products.azurewebsites.net/api/products/${id}`).subscribe((data: any) => {
+
+      const newMovie = new Movie();
+      newMovie.id = data.id;
+      newMovie.title = data.name;
+      newMovie.description = data.description;
+      newMovie.price = data.price;
+      newMovie.imageUrl = data.imageUrl;
+      // newMovie.category = movie.Year;
+
+      this.singleMovie.next(newMovie);
+
+    });
+  };
 
 }
