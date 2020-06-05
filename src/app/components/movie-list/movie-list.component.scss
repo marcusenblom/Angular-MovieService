@@ -1,12 +1,13 @@
-.movies-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.header {
+  text-align: left;
+  padding: 0 15px;
+  margin-top: 40px;
+}
 
-  .movie-container {
-    width: 48%;
-    margin-bottom: 100px;
-  }
+.movies-container {
+  display: flex;
+  margin: 0 15px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: scroll;
 }
