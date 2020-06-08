@@ -7,8 +7,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
-import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { OrderComponent } from './components/order/order.component';
+import { OrderMovieComponent } from './components/order-movie/order-movie.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { OrderComponent } from './components/order/order.component';
     DetailComponent,
     HomeComponent,
     MovieComponent,
-    MovieListComponent,
-    OrderComponent
+    OrderComponent,
+    OrderMovieComponent
   ],
   imports: [
     BrowserModule,

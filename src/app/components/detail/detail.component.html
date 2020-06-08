@@ -7,6 +7,12 @@
   <div class="info-container">
     <h2>{{ movie.title }}</h2>
     <p>{{ movie.description }}</p>
+    <p>Categories: {{ movie.categoryList | json }}</p>
+
+    <div class="addToCart">
+      <button class="btn btn-light" (click)="addToBag(movie)">Lägg till i varukorgen</button>
+    </div>
+
   </div>
 
 </div>

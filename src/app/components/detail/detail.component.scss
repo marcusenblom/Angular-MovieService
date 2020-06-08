@@ -4,8 +4,10 @@
   display: flex;
   justify-content: center;
 
+
   .image-container {
     width: 45%;
+    padding: 0 15px;
     img {
       width: 100%;
     }
@@ -13,6 +15,7 @@
 
   .info-container {
     width: 45%;
+    padding: 0 15px;
   }
 
 }

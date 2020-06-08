@@ -10,10 +10,21 @@ import { Movie } from 'src/app/models/movie';
 export class MovieComponent implements OnInit {
 
   @Input() movie: Movie;
+  @Input() category: number;
+
+  categoryExist: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+
+    this.movie.categoryList.forEach(element => {
+
+      if (element.categoryId == this.category || this.category == 0) {
+        this.categoryExist = true;
+      }
+    });
+
   }
 
 }

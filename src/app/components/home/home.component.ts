@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[];
+  categories: [];
+
+  constructor(private service: MovieService) { }
 
   ngOnInit(): void {
+    this.service.categories.subscribe((categories: []) => {
+      this.categories = categories;
+
+      console.log("categories: " + JSON.stringify(this.categories));
+
+    });
+
+    this.service.movieList.subscribe((movies: Movie[]) => {
+      this.movies = movies;
+
+      movies.forEach(movie => {
+
+        movie.categoryList.forEach(category => {
+
+          this.categories.forEach(element => {
+            if (element.id === category.categoryId) {
+              category.category = element.name;
+            }
+          });
+
+        });
+      });
+
+      console.log(this.movies);
+
+    });
+
+    this.service.getData();
+
   }
 
 }

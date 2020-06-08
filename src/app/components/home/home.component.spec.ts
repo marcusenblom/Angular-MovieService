@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import MockMovieService from 'src/app/services/MockMovieService';
+import { MovieService } from 'src/app/services/movie.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +10,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      providers: [HomeComponent, { provide: MovieService, useClass: MockMovieService }] // replace MovieService with MockMovieService when tests are run
     })
     .compileComponents();
   }));

@@ -11,10 +11,14 @@ export class MovieService implements IMovieService{
 
   movieList: Subject<Movie[]> = new Subject<Movie[]>();
   singleMovie: Subject<Movie> = new Subject<Movie>();
+  categories: Subject<[]> = new Subject<[]>();
 
   constructor(private http: HttpClient) { }
 
   getData(){
+
+    this.getCategories();
+
     this.http.get("https://medieinstitutet-wie-products.azurewebsites.net/api/products").subscribe((data: any) => {
 
       const moviesFromApi: Movie[] = data.map((movie: any) => {
@@ -25,7 +29,8 @@ export class MovieService implements IMovieService{
         newMovie.description = movie.description;
         newMovie.price = movie.price;
         newMovie.imageUrl = movie.imageUrl;
-        // newMovie.category = movie.Year;
+        newMovie.categoryList = movie.productCategory;
+
         return newMovie;
       });
       this.movieList.next(moviesFromApi);
@@ -34,6 +39,9 @@ export class MovieService implements IMovieService{
   }
 
   getSingleMovie(id: string){
+
+    this.getCategories();
+
     this.http.get(`https://medieinstitutet-wie-products.azurewebsites.net/api/products/${id}`).subscribe((data: any) => {
 
       const newMovie = new Movie();
@@ -42,11 +50,19 @@ export class MovieService implements IMovieService{
       newMovie.description = data.description;
       newMovie.price = data.price;
       newMovie.imageUrl = data.imageUrl;
-      // newMovie.category = movie.Year;
+      newMovie.categoryList = data.productCategory;
 
       this.singleMovie.next(newMovie);
+    });
+  };
+
+  getCategories(){
+    this.http.get(`https://medieinstitutet-wie-products.azurewebsites.net/api/categories`).subscribe((data: []) => {
+
+      this.categories.next(data);
 
     });
   };
+
 
 }

@@ -1,4 +1,4 @@
-<div class="movie">
+<div class="movie" *ngIf="categoryExist">
   <div class="img-container">
     <a routerLink="/detail/{{ movie.id }}">
       <img [src]="movie.imageUrl" alt="">

@@ -4,7 +4,7 @@ export class Movie {
   description: string;
   price: number;
   imageUrl: string;
-  category: string[];
+  categoryList: [];
 
   // constructor(id: number, title: string, description: string, price: number, imageUrl: string, category: string[]){
   //   this.id = id;

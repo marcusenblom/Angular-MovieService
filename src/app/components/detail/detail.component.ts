@@ -25,6 +25,27 @@ export class DetailComponent implements OnInit {
     });
 
     this.service.getSingleMovie(this.id);
+
+  }
+
+  addToBag(movie: Movie){
+    let newLocalArray = [];
+
+    if (localStorage.getItem("cart")) {
+      let currentCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      currentCartItems.forEach(element => {
+        newLocalArray.push(element);
+      });
+
+      newLocalArray.push(movie);
+
+    } else {
+      newLocalArray.push(movie);
+    };
+
+    localStorage.setItem("cart", JSON.stringify(newLocalArray));
+
   }
 
 }
