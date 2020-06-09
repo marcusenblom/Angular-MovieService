@@ -12,21 +12,23 @@ export class DetailComponent implements OnInit {
 
   id: string;
   movie: Movie;
+  // categories = [];
 
   constructor(private route: ActivatedRoute, private service: MovieService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(p => {
+    this.route.params.subscribe(p => {  // Params
       this.id = p.id;
     });
 
-    this.service.singleMovie.subscribe((movie: Movie) => {
+    this.service.singleMovie.subscribe((movie: Movie) => {    // Single movie
       this.movie = movie;
+
     });
 
     this.service.getSingleMovie(this.id);
-
   }
+
 
   addToBag(movie: Movie){
     let newLocalArray = [];
@@ -34,8 +36,8 @@ export class DetailComponent implements OnInit {
     if (localStorage.getItem("cart")) {
       let currentCartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-      currentCartItems.forEach(element => {
-        newLocalArray.push(element);
+      currentCartItems.forEach(e => {
+        newLocalArray.push(e);
       });
 
       newLocalArray.push(movie);

@@ -1,10 +1,12 @@
+import { Category } from './category';
+
 export class Movie {
   id: number;
   title: string;
   description: string;
   price: number;
   imageUrl: string;
-  categoryList: [];
+  categoryList: Category[];
 
   // constructor(id: number, title: string, description: string, price: number, imageUrl: string, category: string[]){
   //   this.id = id;
