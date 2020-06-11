@@ -5,9 +5,10 @@
 }
 
 .movies-container {
-  display: flex;
   margin: 0 15px;
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   overflow: scroll;
 }
+

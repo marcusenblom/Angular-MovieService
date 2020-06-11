@@ -6,14 +6,14 @@
 
   <div class="info-container">
     <h2>{{ movie.title }}</h2>
-    <p>{{ movie.description }}</p>
+    <p class="description">{{ movie.description }}</p>
     <p>
       <span>Categories: </span>
       <span *ngFor="let category of movie.categoryList">{{ category.category }}</span>
     </p>
     <p>Price: <span>{{ movie.price }}</span> SEK</p>
 
-    <div class="addToCart">
+    <div class="add-to-cart">
       <button class="btn btn-light" (click)="addToBag(movie)">Add to bag</button>
     </div>
 

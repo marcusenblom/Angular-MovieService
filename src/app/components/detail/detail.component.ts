@@ -33,8 +33,8 @@ export class DetailComponent implements OnInit {
   addToBag(movie: Movie){
     let newLocalArray = [];
 
-    if (localStorage.getItem("cart")) {
-      let currentCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    if (localStorage.getItem("streamnetCart")) {
+      let currentCartItems = JSON.parse(localStorage.getItem("streamnetCart")) || [];
 
       currentCartItems.forEach(e => {
         newLocalArray.push(e);
@@ -46,7 +46,7 @@ export class DetailComponent implements OnInit {
       newLocalArray.push(movie);
     };
 
-    localStorage.setItem("cart", JSON.stringify(newLocalArray));
+    localStorage.setItem("streamnetCart", JSON.stringify(newLocalArray));
 
   }
 

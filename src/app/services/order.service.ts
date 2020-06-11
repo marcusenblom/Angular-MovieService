@@ -10,12 +10,14 @@ import { Category } from '../models/category';
 })
 export class OrderService implements IOrderService {
 
+  readonly apiPostUrl = "https://medieinstitutet-wie-products.azurewebsites.net/api/orders";
+
   constructor(private http: HttpClient) { }
 
   returnData;
 
-  sendOrder(){
-    this.http.post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", {"id": 1001, "companyId": 3737, "createdBy":"TestM","paymentMethod":"Visa","totalPrice":999,"status":0,"orderRows":[] }).subscribe(data => {
+  sendOrder(orderObject){
+    this.http.post(this.apiPostUrl, orderObject).subscribe(data => {
       this.returnData = data;
     });
 

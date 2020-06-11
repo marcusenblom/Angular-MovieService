@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-order-movie',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderMovieComponent implements OnInit {
 
+  @Input() movie: Movie;
+  @Output() remove: EventEmitter<Movie> = new EventEmitter<Movie>();
+
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  removeFromCart(){
+    this.remove.emit(this.movie);
   }
 
 }

@@ -1,1 +1,13 @@
-<p>order-movie works!</p>
+<div class="movie">
+  <div class="img-container">
+    <a routerLink="/detail/{{ movie.id }}">
+      <img [src]="movie.imageUrl" alt="">
+    </a>
+  </div>
+  <div class="info-container">
+    <p>{{movie.title}}</p>
+    <p>{{movie.price}}</p>
+    <p><button (click)="removeFromCart()">Remove me</button></p>
+  </div>
+
+</div>

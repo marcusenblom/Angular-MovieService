@@ -1,0 +1,47 @@
+h2 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.checkout-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  form {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .form-group {
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+    .form-check {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 60px;
+      margin: 20px 0;
+
+      button {
+        width: 150px;
+      }
+    }
+  }
+}

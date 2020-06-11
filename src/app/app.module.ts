@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { OrderComponent } from './components/order/order.component';
 import { OrderMovieComponent } from './components/order-movie/order-movie.component';
+import { OrderFormComponent } from './components/order-form/order-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OrderMovieComponent } from './components/order-movie/order-movie.compon
     HomeComponent,
     MovieComponent,
     OrderComponent,
-    OrderMovieComponent
+    OrderMovieComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,

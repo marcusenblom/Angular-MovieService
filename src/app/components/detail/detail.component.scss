@@ -1,12 +1,14 @@
 #detail-container {
-  margin-top: 50px;
-  padding: 0 30px;
+  width: 100%;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 
 
   .image-container {
-    width: 45%;
+    width: 100%;
     padding: 0 15px;
     img {
       width: 100%;
@@ -14,8 +16,19 @@
   }
 
   .info-container {
-    width: 45%;
-    padding: 0 15px;
+    width: 90%;
+
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+      text-decoration: underline;
+    }
+
+    .add-to-cart {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+    }
   }
 
 }

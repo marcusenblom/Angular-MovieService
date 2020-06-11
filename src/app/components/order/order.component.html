@@ -1,4 +1,11 @@
-<p>order works!</p>
+<h3 class="header">Your cart</h3>
+<app-order-movie class="cart-container" *ngFor="let movie of currentCartItems" [movie]="movie" (remove)="removeMovie(movie)"></app-order-movie>
 
-<button (click)="sendOrder()">Skicka order</button>
+<div class="total-price">
+
+</div>
+
+
+<app-order-form></app-order-form>
+
 
