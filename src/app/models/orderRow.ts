@@ -1,6 +1,6 @@
 import { Movie } from './movie';
 
-export class orderRows {
+export class OrderRow {
   id: number;
   productId: number;
   product: Movie;

@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
     this.service.movieList.subscribe((movies: Movie[]) => {   // Subscribing on fetched movies
       this.movies = movies;
 
-      console.log(this.movies);
     });
 
     this.service.getData();

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Movie } from 'src/app/models/movie';
+import { Customer } from 'src/app/models/customer';
 
 @Component({
   selector: 'app-order',
@@ -11,7 +12,9 @@ export class OrderComponent implements OnInit {
 
   constructor(private service: OrderService) { }
 
-  currentCartItems: Movie[];
+  currentCartItems: Movie[]
+  paymentMethod: string;
+  userInfo: Customer;
 
   ngOnInit(): void {
 
@@ -38,4 +41,23 @@ export class OrderComponent implements OnInit {
 
   }
 
+  hejStefan(userInfo){
+    this.userInfo = userInfo;
+
+  }
+
+  hejStefan2(paymentMethod){
+    this.paymentMethod = paymentMethod;
+
+  }
+
+  sendOrderToService(){
+    this.service.sendOrder(this.currentCartItems, this.userInfo, this.paymentMethod);
+
+    }
+
 }
+
+
+
+

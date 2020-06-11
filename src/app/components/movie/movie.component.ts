@@ -24,7 +24,5 @@ export class MovieComponent implements OnInit {
         this.categoryExist = true;
       }
     });
-
   }
-
 }

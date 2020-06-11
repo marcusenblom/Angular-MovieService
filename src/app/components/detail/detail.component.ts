@@ -17,13 +17,13 @@ export class DetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: MovieService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(p => {  // Params
-      this.id = p.id;
-    });
-
     this.service.singleMovie.subscribe((movie: Movie) => {    // Single movie
       this.movie = movie;
 
+    });
+
+    this.route.params.subscribe(p => {  // Params
+      this.id = p.id;
     });
 
     this.service.getSingleMovie(this.id);

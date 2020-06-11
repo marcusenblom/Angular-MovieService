@@ -4,6 +4,7 @@ import { Movie } from '../models/movie';
 import { HttpClient } from '@angular/common/http';
 import IOrderService from './IOrderService';
 import { Category } from '../models/category';
+import { Customer } from '../models/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,19 @@ export class OrderService implements IOrderService {
 
   returnData;
 
-  sendOrder(orderObject){
+  sendOrder(cartItems: Movie[], userInfo: Customer, paymentMethod: string){
+
+    let orderObject = {}; // Create new object with cartItems, userInfo and paymentMethod
+
     this.http.post(this.apiPostUrl, orderObject).subscribe(data => {
       this.returnData = data;
     });
 
     console.log(this.returnData);
 
-  }
+    // Send to localstorage to be viewed in Admin
 
+    localStorage.setItem("streamnetCart", JSON.stringify(orderObject));
+
+  }
 }

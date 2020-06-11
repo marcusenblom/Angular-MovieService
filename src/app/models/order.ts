@@ -1,6 +1,6 @@
 import { Time } from '@angular/common';
 import { Customer } from './customer';
-import { orderRows } from './orderRows';
+import { OrderRow } from './orderRow';
 
 export class Order {
   id: number;
@@ -10,5 +10,5 @@ export class Order {
   paymentMethod: string;
   totalPrice: number;
   status: number;
-  orderRows: orderRows[];
+  orderRows: OrderRow[];
 }

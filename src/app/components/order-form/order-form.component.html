@@ -1,33 +1,41 @@
 <h2>Checkout information</h2>
 <div class="checkout-form">
-  <form>
+  <form [formGroup]="customer">
     <div class="form-group">
       <label for="exampleInputEmail1">First name</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="first name">
+      <input type="text" class="form-control" formControlName="firstName" placeholder="first name" name="firstName">
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Surname</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="last name">
+      <label for="exampleInputEmail1">Last</label>
+      <input type="text" class="form-control" formControlName="lastName" placeholder="last name">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="email">
+      <input type="email" class="form-control" formControlName="email" placeholder="email">
     </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Street</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="street">
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Street</label>
+        <input type="text" class="form-control" formControlName="street" placeholder="street">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Zip code</label>
+        <input type="text" class="form-control" formControlName="zip" placeholder="zip">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">City</label>
+        <input type="text" class="form-control" formControlName="city" placeholder="city">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Zip code</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="zip">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">City</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="city">
-    </div>
+
+    <p>
+      {{customer.value | json}}
+    </p>
+
     <div>
       <label for="exampleFormControlSelect1">Payment Method</label>
-      <select class="form-control" id="exampleFormControlSelect1">
+      <select class="form-control" id="payment">
         <option>Visa</option>
         <option>Mastercard</option>
         <option>Swish</option>
