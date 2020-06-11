@@ -34,27 +34,24 @@ export class OrderComponent implements OnInit {
     if (indexOf != -1) { // -1 will be returned if something goes wrong with the index of movie
       this.currentCartItems.splice(indexOf, 1);
     } else {
-      alert("Något gick fel, movien kunde inte tas bort");
+      alert("Något gick fel, filmen kunde inte tas bort. Var god kontaka supporten");
     }
 
     localStorage.setItem("streamnetCart", JSON.stringify(this.currentCartItems));
-
   }
 
-  hejStefan(userInfo){
+  relayUserInfo(userInfo){
     this.userInfo = userInfo;
-
   }
 
-  hejStefan2(paymentMethod){
+  relayPaymentMethod(paymentMethod){
     this.paymentMethod = paymentMethod;
-
   }
 
-  sendOrderToService(){
+  sendOrderViaService(){
     this.service.sendOrder(this.currentCartItems, this.userInfo, this.paymentMethod);
+  }
 
-    }
 
 }
 
