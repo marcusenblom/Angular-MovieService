@@ -18,7 +18,6 @@ export class OrderService implements IOrderService {
 
   totalPrice: number = 0;
   orderRows: OrderRow[] = [];
-  returnData: any;
 
   sendOrder(cartItems: Movie[], userInfo: Customer, paymentMethod: string){
 
@@ -31,18 +30,14 @@ export class OrderService implements IOrderService {
 
       this.orderRows.push(newOrderRow);
     });
-    console.log(this.totalPrice);
 
-    let orderObject: Order = new Order(37, "Mackan", paymentMethod, this.totalPrice, this.orderRows); // Create new object with cartItems, AdminUser (hard coded) and paymentMethod + loop cartItems to get totalPrice of the order
+    let orderObject: Order = new Order(37, userInfo.firstName, paymentMethod, this.totalPrice, this.orderRows); // Create new object with cartItems, AdminUser (hard coded) and paymentMethod + loop cartItems to get totalPrice of the order
 
+    // HTTP POST
     this.http.post(this.apiPostUrl, orderObject).subscribe(data => {
-      this.returnData = data;
     });
 
-    console.log("return data: " + this.returnData);
-
-
-    // Send to localstorage to be viewed in Admin
+    // Send to localstorage to be viewed in Admin. API Get request instead?
     let newOrderArray = []
 
     if (localStorage.getItem("streamnetOrderList")) {

@@ -36,15 +36,14 @@
 
     <div>
       <label for="exampleFormControlSelect1">Payment Method</label>
-      <select class="form-control" id="payment">
-        <option>Visa</option>
-        <option>Mastercard</option>
-        <option>Swish</option>
+      <select class="form-control" id="payment" formControlName="paymentMethod">
+        <option *ngFor="let option of paymentOptions" [value]="option">{{option}}</option>
       </select>
     </div>
     <div class="button-container">
-      <button type="submit" class="btn btn-light" (click)="sendUserInfo()">Submit order</button>
+      <button type="submit" class="btn btn-light" (click)="sendUserInfo()" [disabled]="!customer.valid">Submit order</button>
     </div>
   </form>
 </div>
+
 

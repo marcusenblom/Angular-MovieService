@@ -22,9 +22,11 @@ export class OrderFormComponent implements OnInit {
       street: ['', Validators.required],
       zip: ['', Validators.required],
       city: ['', Validators.required]
-    })
-
+    }),
+    paymentMethod: ['', Validators.required]
   });
+
+  paymentOptions = ["Visa", "Mastercard", "Swish"];
 
   constructor(private fb: FormBuilder) { }
 
@@ -33,8 +35,6 @@ export class OrderFormComponent implements OnInit {
 
   sendUserInfo(){
 
-    let paymentMethod = "MasterVisa";   // Must be fetched from dropdown
-
     // Skapa upp nytt Customer-objekt
 
     let newCustomer: Customer = this.customer.value;
@@ -42,7 +42,7 @@ export class OrderFormComponent implements OnInit {
     let newOrderForm = new OrderForm;
 
     newOrderForm.customer = newCustomer;
-    newOrderForm.paymentMethod = paymentMethod;
+    newOrderForm.paymentMethod = this.customer.value.paymentMethod;
 
     // Emitta Userinfo + Payment method till parent component
 

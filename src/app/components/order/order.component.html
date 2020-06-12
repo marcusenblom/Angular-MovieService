@@ -8,4 +8,8 @@
 
 <app-order-form *ngIf="currentCartItems.length > 0; else empty" [cart]="currentCartItems" (userInfo)="sendOrderViaService($event)"></app-order-form>
 
-<ng-template #empty class="empty-cart">Your cart is empty</ng-template>
+<ng-template #empty>
+  <div class="empty-cart">
+    <span>Your have no movies added to your cart</span>
+  </div>
+</ng-template>

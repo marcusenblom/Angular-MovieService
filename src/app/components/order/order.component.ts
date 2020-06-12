@@ -47,6 +47,8 @@ export class OrderComponent implements OnInit {
     this.userInfo = orderForm.customer;
 
     this.service.sendOrder(this.currentCartItems, this.userInfo, this.paymentMethod);
+
+    this.currentCartItems = [];
   }
 
 
