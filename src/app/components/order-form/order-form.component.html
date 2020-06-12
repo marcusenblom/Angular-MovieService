@@ -1,31 +1,32 @@
+
 <h2>Checkout information</h2>
 <div class="checkout-form">
   <form [formGroup]="customer">
     <div class="form-group">
       <label for="exampleInputEmail1">First name</label>
-      <input type="text" class="form-control" formControlName="firstName" placeholder="first name" name="firstName">
+      <input type="text" class="form-control" formControlName="firstName" placeholder="first name" name="firstName" value="Mackeliback">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Last</label>
-      <input type="text" class="form-control" formControlName="lastName" placeholder="last name">
+      <input type="text" class="form-control" formControlName="lastName" placeholder="last name" value="Efternamn">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" formControlName="email" placeholder="email">
+      <input type="email" class="form-control" formControlName="email" placeholder="email" value="email@mail.com">
     </div>
 
     <div formGroupName="address">
       <div class="form-group">
         <label for="exampleInputEmail1">Street</label>
-        <input type="text" class="form-control" formControlName="street" placeholder="street">
+        <input type="text" class="form-control" formControlName="street" placeholder="street" value="Väg">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Zip code</label>
-        <input type="text" class="form-control" formControlName="zip" placeholder="zip">
+        <input type="text" class="form-control" formControlName="zip" placeholder="zip" value="12345">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">City</label>
-        <input type="text" class="form-control" formControlName="city" placeholder="city">
+        <input type="text" class="form-control" formControlName="city" placeholder="city" value="Sthlm">
       </div>
     </div>
 

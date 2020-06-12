@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Movie } from 'src/app/models/movie';
 import { Customer } from 'src/app/models/customer';
+import { OrderRow } from 'src/app/models/orderRow';
 
 @Component({
   selector: 'app-order',
@@ -40,15 +41,11 @@ export class OrderComponent implements OnInit {
     localStorage.setItem("streamnetCart", JSON.stringify(this.currentCartItems));
   }
 
-  relayUserInfo(userInfo){
-    this.userInfo = userInfo;
-  }
+  sendOrderViaService(orderForm){
 
-  relayPaymentMethod(paymentMethod){
-    this.paymentMethod = paymentMethod;
-  }
+    this.paymentMethod = orderForm.paymentMethod;
+    this.userInfo = orderForm.customer;
 
-  sendOrderViaService(){
     this.service.sendOrder(this.currentCartItems, this.userInfo, this.paymentMethod);
   }
 

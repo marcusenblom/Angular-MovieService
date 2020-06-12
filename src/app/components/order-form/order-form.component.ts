@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { OrderService } from 'src/app/services/order.service';
-import { Order } from 'src/app/models/order';
 import { Customer } from 'src/app/models/customer';
 import { FormBuilder, Validators } from '@angular/forms';
+import { OrderForm } from 'src/app/models/orderForm';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-order-form',
@@ -11,8 +11,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class OrderFormComponent implements OnInit {
 
-  @Output() userInfo: EventEmitter<Customer> = new EventEmitter<Customer>();
-  @Output() paymentMethod: EventEmitter<string> = new EventEmitter<string>();
+  @Input() cart: Movie[];
+  @Output() userInfo: EventEmitter<OrderForm> = new EventEmitter<OrderForm>();
 
   customer = this.fb.group({
     firstName: ['', Validators.required],
@@ -33,18 +33,20 @@ export class OrderFormComponent implements OnInit {
 
   sendUserInfo(){
 
-    let paymentMethod = "MasterVisa";
+    let paymentMethod = "MasterVisa";   // Must be fetched from dropdown
 
     // Skapa upp nytt Customer-objekt
 
     let newCustomer: Customer = this.customer.value;
 
+    let newOrderForm = new OrderForm;
+
+    newOrderForm.customer = newCustomer;
+    newOrderForm.paymentMethod = paymentMethod;
+
     // Emitta Userinfo + Payment method till parent component
 
-    this.userInfo.emit(newCustomer);
-    this.paymentMethod.emit(paymentMethod);
-
-
+    this.userInfo.emit(newOrderForm);
   }
 
 }

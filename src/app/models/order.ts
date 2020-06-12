@@ -3,12 +3,18 @@ import { Customer } from './customer';
 import { OrderRow } from './orderRow';
 
 export class Order {
-  id: number;
   companyId: number;
-  created: Time;
-  createdBy: Customer;
+  // createdBy: Customer;
+  createdBy: string;
   paymentMethod: string;
   totalPrice: number;
-  status: number;
   orderRows: OrderRow[];
+
+  constructor(companyId: number, createdBy: string, paymentMethod: string, totalPrice: number, orderRows: OrderRow[]){
+    this.companyId = companyId;
+    this.createdBy = createdBy;
+    this.paymentMethod = paymentMethod;
+    this.totalPrice = totalPrice;
+    this.orderRows = orderRows;
+  }
 }
