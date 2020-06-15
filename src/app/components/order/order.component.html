@@ -2,7 +2,7 @@
 <app-order-movie class="cart-container" *ngFor="let movie of currentCartItems" [movie]="movie" (remove)="removeMovie(movie)"></app-order-movie>
 
 <div *ngIf="currentCartItems.length > 0" class="total-price">
-
+  <span>Total price: {{ totalPrice }}</span>
 </div>
 
 

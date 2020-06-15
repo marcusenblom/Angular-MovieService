@@ -39,7 +39,10 @@ export class DetailComponent implements OnInit {
       let alreadyExist: boolean = false;
 
       currentCartItems.forEach(movieFromCart => {
-
+        if (movieFromCart.id == movie.id) {
+          movieFromCart.amount ++;
+          alreadyExist = true;
+        }
         newLocalArray.push(movieFromCart);
       });
 
