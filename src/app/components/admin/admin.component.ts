@@ -9,7 +9,16 @@ export class AdminComponent implements OnInit {
 
   constructor() { }
 
+  currentOrderList = []
+
   ngOnInit(): void {
+
+    if (localStorage.getItem("streamnetOrderList")) {
+      this.currentOrderList = JSON.parse(localStorage.getItem("streamnetOrderList")) || [];
+    }
+
   }
+
+
 
 }

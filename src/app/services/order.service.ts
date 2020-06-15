@@ -6,6 +6,7 @@ import IOrderService from './IOrderService';
 import { Customer } from '../models/customer';
 import { Order } from '../models/order';
 import { OrderRow } from '../models/orderRow';
+// import { FullOrder } from '../models/fullOrder';
 
 @Injectable({
   providedIn: 'root'
@@ -38,23 +39,24 @@ export class OrderService implements IOrderService {
     });
 
     // Send to localstorage to be viewed in Admin. API Get request instead?
-    let newOrderArray = []
+    // let newFullOrder: FullOrder = new FullOrder(orderObject, userInfo);
+    // let newOrderArray = []
 
-    if (localStorage.getItem("streamnetOrderList")) {
-      let currentOrderList = JSON.parse(localStorage.getItem("streamnetOrderList")) || [];
+    // if (localStorage.getItem("streamnetOrderList")) {
+    //   let currentOrderList = JSON.parse(localStorage.getItem("streamnetOrderList")) || [];
 
-      currentOrderList.forEach(order => {
-        newOrderArray.push(order);
-      });
+    //   currentOrderList.forEach(order => {
+    //     newOrderArray.push(order);
+    //   });
 
-      newOrderArray.push(orderObject);
+    //   newOrderArray.push(newFullOrder);
 
-    } else {
-      newOrderArray.push(orderObject);
-    };
+    // } else {
+    //   newOrderArray.push(newFullOrder);
+    // };
 
-    // Set localStorage OrderList so that AdminComponent can find that info
-    localStorage.setItem("streamnetOrderList", JSON.stringify(newOrderArray));
+    // // Set localStorage OrderList so that AdminComponent can find that info
+    // localStorage.setItem("streamnetOrderList", JSON.stringify(newOrderArray));
 
     // Resets cart
     localStorage.setItem("streamnetCart", "");

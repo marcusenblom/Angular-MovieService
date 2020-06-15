@@ -32,6 +32,7 @@ export class MovieService implements IMovieService{
           newMovie.price = movie.price;
           newMovie.imageUrl = movie.imageUrl;
           newMovie.categoryList = [];
+          newMovie.amount = 1;
 
           movie.productCategory.forEach(element => {
             categories.forEach(e => {
@@ -70,6 +71,7 @@ export class MovieService implements IMovieService{
         newMovie.price = data.price;
         newMovie.imageUrl = data.imageUrl;
         newMovie.categoryList = [];
+        newMovie.amount = 1;
 
         data.productCategory.forEach(element => {
           categories.forEach(e => {

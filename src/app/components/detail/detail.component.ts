@@ -36,11 +36,16 @@ export class DetailComponent implements OnInit {
     if (localStorage.getItem("streamnetCart")) {
       let currentCartItems = JSON.parse(localStorage.getItem("streamnetCart")) || [];
 
-      currentCartItems.forEach(e => {
-        newLocalArray.push(e);
+      let alreadyExist: boolean = false;
+
+      currentCartItems.forEach(movieFromCart => {
+
+        newLocalArray.push(movieFromCart);
       });
 
-      newLocalArray.push(movie);
+      if (!alreadyExist) {
+        newLocalArray.push(movie);
+      }
 
     } else {
       newLocalArray.push(movie);

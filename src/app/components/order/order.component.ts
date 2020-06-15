@@ -25,12 +25,10 @@ export class OrderComponent implements OnInit {
 
   getCart(){
 
-    if (localStorage.getItem("streamnetCart")) {
-      this.currentCartItems = JSON.parse(localStorage.getItem("streamnetCart")) || [];
-    }
+    this.currentCartItems = JSON.parse(localStorage.getItem("streamnetCart")) || [];
   }
 
-  removeMovie(movie: Movie){
+  removeMovie(movie){
     let indexOf: number = this.currentCartItems.indexOf(movie);
     if (indexOf != -1) { // -1 will be returned if something goes wrong with the index of movie
       this.currentCartItems.splice(indexOf, 1);

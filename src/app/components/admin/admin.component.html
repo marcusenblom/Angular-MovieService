@@ -1,3 +1,23 @@
-<p>admin works!</p>
 
-<h2>ADMIN</h2>
+<div class="order-list">
+  <h2>Orders</h2>
+  <div class="order" *ngFor="let order of currentOrderList">
+    <h5>Customer:</h5>
+    <p>{{ order.customer.firstName }}</p>
+    <p>{{ order.customer.lastName }}</p>
+    <p>{{ order.customer.email }}</p>
+    <h5>Adress:</h5>
+    <p>{{ order.customer.address.street }}</p>
+    <p>{{ order.customer.address.zip }}</p>
+    <p>{{ order.customer.address.city }}</p>
+    <h5>Order:</h5>
+    <div *ngFor="let product of order.order.orderRows">
+      <p>{{ product.productId }}</p>
+      <p>{{ product.amount }}</p>
+    </div>
+    <p>Total Price: {{ order.order.totalPrice }}</p>
+    <p>Payment method: {{ order.order.paymentMethod }}</p>
+  </div>
+</div>
+
+
