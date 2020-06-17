@@ -1,15 +1,17 @@
-<h3 class="header">Your cart</h3>
-<app-order-movie class="cart-container" *ngFor="let movie of currentCartItems" [movie]="movie" (remove)="removeMovie(movie)"></app-order-movie>
+<div>
+  <h3 class="header">Your cart</h3>
+  <app-order-movie class="cart-container" *ngFor="let movie of currentCartItems" [movie]="movie" (remove)="removeMovie(movie)" (increase)="increaseAmount(movie)" (decrease)="decreaseAmount(movie)"></app-order-movie>
 
-<div *ngIf="currentCartItems.length > 0" class="total-price">
-  <span>Total price: {{ totalPrice }}</span>
-</div>
-
-
-<app-order-form *ngIf="currentCartItems.length > 0; else empty" [cart]="currentCartItems" (userInfo)="sendOrderViaService($event)"></app-order-form>
-
-<ng-template #empty>
-  <div class="empty-cart">
-    <span>Your have no movies added to your cart</span>
+  <div *ngIf="currentCartItems.length > 0" class="total-price">
+    <span>Total price: {{ totalPrice }}</span>
   </div>
-</ng-template>
+
+
+  <app-order-form *ngIf="currentCartItems.length > 0; else empty" (userInfo)="sendOrderViaService($event)"></app-order-form>
+
+  <ng-template #empty>
+    <div class="empty-cart">
+      <span>Your have no movies added to your cart</span>
+    </div>
+  </ng-template>
+</div>

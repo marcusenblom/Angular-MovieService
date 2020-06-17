@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { MovieService } from 'src/app/services/movie.service';
 import { Category } from 'src/app/models/category';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   movies: Movie[];
 
-  constructor(private service: MovieService) { }
+  constructor(private service: MovieService, private orderService: OrderService) { }
 
   ngOnInit(): void {
 
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.service.getData();
+    this.orderService.updateCartAmount();
 
   }
 

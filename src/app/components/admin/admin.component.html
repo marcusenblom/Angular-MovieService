@@ -1,23 +1,6 @@
-
 <div class="order-list">
   <h2>Orders</h2>
-  <div class="order" *ngFor="let order of orderList">
-    <h5>Customer:</h5>
-    <p>{{ order.customer.firstName }}</p>
-    <p>{{ order.customer.lastName }}</p>
-    <p>{{ order.customer.email }}</p>
-    <h5>Adress:</h5>
-    <p>{{ order.customer.address.street }}</p>
-    <p>{{ order.customer.address.zip }}</p>
-    <p>{{ order.customer.address.city }}</p>
-    <h5>Order:</h5>
-    <div *ngFor="let product of order.order.orderRows">
-      <p>{{ product.productId }}</p>
-      <p>{{ product.amount }}</p>
-    </div>
-    <p>Total Price: {{ order.order.totalPrice }}</p>
-    <p>Payment method: {{ order.order.paymentMethod }}</p>
-  </div>
+  <app-admin-order class="order" *ngFor="let order of orderList" [order]="order" (remove)="removeOrder(order)"></app-admin-order>
 </div>
 
 

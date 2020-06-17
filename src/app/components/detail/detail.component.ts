@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { Movie } from 'src/app/models/movie';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-detail',
@@ -12,9 +13,8 @@ export class DetailComponent implements OnInit {
 
   id: string;
   movie: Movie;
-  // categories = [];
 
-  constructor(private route: ActivatedRoute, private service: MovieService) { }
+  constructor(private route: ActivatedRoute, private service: MovieService, private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.service.singleMovie.subscribe((movie: Movie) => {    // Single movie
@@ -27,6 +27,7 @@ export class DetailComponent implements OnInit {
     });
 
     this.service.getSingleMovie(this.id);
+    this.orderService.updateCartAmount();
   }
 
 
@@ -55,7 +56,14 @@ export class DetailComponent implements OnInit {
     };
 
     localStorage.setItem("streamnetCart", JSON.stringify(newLocalArray));
+    this.orderService.updateCartAmount();
 
+    document.getElementById("addButton").classList.add("pushed");
+    document.getElementById("addButton").innerHTML = "Movie added to bag!";
+    setTimeout(function(){
+      document.getElementById("addButton").classList.remove("pushed");
+      document.getElementById("addButton").innerHTML = "Add to bag";
+    }, 2000);
   }
 
 }

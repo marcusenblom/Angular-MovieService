@@ -10,8 +10,8 @@ export class OrderMovieComponent implements OnInit {
 
   @Input() movie: Movie;
   @Output() remove: EventEmitter<Movie> = new EventEmitter<Movie>();
-
-
+  @Output() increase: EventEmitter<Movie> = new EventEmitter<Movie>();
+  @Output() decrease: EventEmitter<Movie> = new EventEmitter<Movie>();
 
   constructor() { }
 
@@ -20,6 +20,13 @@ export class OrderMovieComponent implements OnInit {
 
   removeFromCart(){
     this.remove.emit(this.movie);
+  }
+
+  increaseAmount(){
+    this.increase.emit(this.movie);
+  }
+  decreaseAmount(){
+    this.decrease.emit(this.movie);
   }
 
 }

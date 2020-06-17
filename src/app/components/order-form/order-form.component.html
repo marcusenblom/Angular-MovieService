@@ -1,5 +1,5 @@
 
-<h2>Checkout information</h2>
+<h4>Checkout information</h4>
 <div class="checkout-form">
   <form [formGroup]="customer">
     <div class="form-group">
@@ -30,11 +30,8 @@
       </div>
     </div>
 
-    <p>
-      {{customer.value | json}}
-    </p>
 
-    <div>
+    <div class="payment-form">
       <label for="exampleFormControlSelect1">Payment Method</label>
       <select class="form-control" id="payment" formControlName="paymentMethod">
         <option *ngFor="let option of paymentOptions" [value]="option">{{option}}</option>

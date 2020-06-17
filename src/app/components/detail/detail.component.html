@@ -1,22 +1,23 @@
-<div id="detail-container">
+<div id="main-container">
+  <div id="detail-container" *ngIf="movie">
+    <div class="image-container">
+        <img [src]="movie.imageUrl">
+    </div>
 
-  <div class="image-container">
-      <img [src]="movie.imageUrl">
-  </div>
+    <div class="info-container">
+      <h2>{{ movie.title }} <span class="year">({{ movie.year }})</span></h2>
+      <p class="description">{{ movie.description }}</p>
+      <p>
+        <span class="light-text">Categories: </span>
+        <span *ngFor="let category of movie.categoryList; index as i">{{ category.category }}<span *ngIf="i !== movie.categoryList.length - 1">, </span></span>
+      </p>
+      <p><span class="light-text">Price: </span><span>{{ movie.price }}</span> SEK</p>
 
-  <div class="info-container">
-    <h2>{{ movie.title }}</h2>
-    <p class="description">{{ movie.description }}</p>
-    <p>
-      <span>Categories: </span>
-      <span *ngFor="let category of movie.categoryList">{{ category.category }}</span>
-    </p>
-    <p>Price: <span>{{ movie.price }}</span> SEK</p>
+      <div class="add-to-cart">
+        <button id="addButton" class="btn btn-light" (click)="addToBag(movie)">Add to bag</button>
+      </div>
 
-    <div class="add-to-cart">
-      <button class="btn btn-light" (click)="addToBag(movie)">Add to bag</button>
     </div>
 
   </div>
-
 </div>

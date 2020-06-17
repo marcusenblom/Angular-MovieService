@@ -1,17 +1,37 @@
-.header {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.cart-container {
-  width: 100%;
+div {
   display: flex;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-}
 
-.empty-cart {
-  width: 100%;
-  text-align: center;
+ .header {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .cart-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .total-price {
+    width: 80%;
+    text-align: end;
+    border-top: 1px solid white;
+    display: flex;
+    justify-content: flex-end;
+
+    span {
+      padding: 10px 0;
+    }
+  }
+
+  .empty-cart {
+    width: 100%;
+    text-align: center;
+  }
+
 }

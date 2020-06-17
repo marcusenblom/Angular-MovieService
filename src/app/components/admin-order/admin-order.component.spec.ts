@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from "@angular/router/testing";
-import { AdminComponent } from './admin.component';
+import { AdminOrderComponent } from './admin-order.component';
 
-describe('AdminComponent', () => {
-  let component: AdminComponent;
-  let fixture: ComponentFixture<AdminComponent>;
+describe('AdminOrderComponent', () => {
+  let component: AdminOrderComponent;
+  let fixture: ComponentFixture<AdminOrderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminComponent ],
+      declarations: [ AdminOrderComponent ],
       imports: [ HttpClientTestingModule, RouterTestingModule ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminComponent);
+    fixture = TestBed.createComponent(AdminOrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

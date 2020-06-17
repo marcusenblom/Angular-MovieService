@@ -1,0 +1,46 @@
+nav {
+  height: 60px;
+  padding: 0 30px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  color: white;
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  a {
+    position: relative;
+    .cart {
+      width: 40px;
+      color: white;
+      transition: 100ms;
+    }
+    .cart:hover {
+      width: 44px;
+    }
+    .badge {
+      position: absolute;
+      right: -16px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      font-size: 0.7rem;
+      padding: 0;
+      line-height: 1.6;
+    }
+  }
+
+  .logo {
+    width: auto;
+  }
+}

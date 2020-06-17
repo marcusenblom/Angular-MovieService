@@ -1,0 +1,14 @@
+
+<h5>Customer:</h5>
+<p>{{ order.createdBy }}</p>
+<h5>Order:</h5>
+<p>{{ order.id }}</p>
+<div *ngFor="let product of order.orderRows">
+  <span>Product id: {{ product.productId }} </span>
+  <span>Amount: {{ product.amount }}</span>
+</div>
+<p>Total Price: {{ order.totalPrice }}</p>
+<p>Payment method: {{ order.paymentMethod }}</p>
+<p><button (click)="removeOrder()">Remove order</button></p>
+
+

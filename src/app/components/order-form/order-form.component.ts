@@ -11,7 +11,6 @@ import { Movie } from 'src/app/models/movie';
 })
 export class OrderFormComponent implements OnInit {
 
-  @Input() cart: Movie[];
   @Output() userInfo: EventEmitter<OrderForm> = new EventEmitter<OrderForm>();
 
   customer = this.fb.group({

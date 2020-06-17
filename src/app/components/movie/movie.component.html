@@ -1,14 +1,14 @@
 <div class="movie" *ngIf="categoryExist">
   <div class="img-container">
     <a routerLink="/detail/{{ movie.id }}">
-      <img [src]="movie.imageUrl" alt="">
+      <img [src]="movie.imageUrl" alt="movie-poster">
     </a>
   </div>
-  <div class="info-container">
+  <!-- <div class="info-container">
     <div class="title-container">
       <span>{{movie.title}}</span>
     </div>
-  </div>
+  </div> -->
 
 </div>
 
