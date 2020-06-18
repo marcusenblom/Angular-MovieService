@@ -31,6 +31,7 @@ export class MovieService implements IMovieService{
           newMovie.description = movie.description;
           newMovie.price = movie.price;
           newMovie.imageUrl = movie.imageUrl;
+          newMovie.year = movie.year;
           newMovie.categoryList = [];
           newMovie.amount = 1;
 
@@ -70,6 +71,7 @@ export class MovieService implements IMovieService{
         newMovie.description = data.description;
         newMovie.price = data.price;
         newMovie.imageUrl = data.imageUrl;
+        newMovie.year = data.year;
         newMovie.categoryList = [];
         newMovie.amount = 1;
 

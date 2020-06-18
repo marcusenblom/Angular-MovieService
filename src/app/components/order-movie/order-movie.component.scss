@@ -2,11 +2,13 @@
   width: 90%;
   display: flex;
   flex-direction: row;
-  // border: 1px solid white;
-  margin-bottom: 10px;
+  margin: 15px 0;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
 
   .img-container {
-    width: 30%;
+    width: 33%;
+    margin-bottom: 10px;
     a {
 
       img {
@@ -18,16 +20,49 @@
     }
   }
   .info-container {
-    width: 60%;
+    width: 33%;
     display: flex;
     // justify-content: center;
     flex-direction: column;
     margin: 0 0 0 20px;
 
+    .title {
+      margin-bottom: 20px;
+    }
+    .smaller {
+      font-size: smaller;
+    }
+
+    .increase {
+      background-color: rgb(81, 136, 9);
+      border: none;
+      margin-right: 10px;
+    }
+    .decrease {
+      background-color: rgb(104, 22, 22);
+      border: none;
+    }
+    .increase:hover, .decrease:hover {
+      opacity: 0.9;
+    }
+  }
+  .delete-container {
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    i {
+      cursor: pointer;
+    }
+    i:hover {
+      font-size: large;
+    }
   }
 
+  @media screen and (min-width: 700px) {
+    width: 60%;
 
-
-
+  }
 
 }

@@ -18,10 +18,21 @@ h4 {
     flex-direction: row;
     flex-wrap: wrap;
 
+    h5 {
+      margin: 20px 0;
+    }
+
     .form-group {
       width: 100%;
       input {
         width: 100%;
+      }
+    }
+    .address {
+      width: 100%;
+
+      .zip {
+        width: 40%;
       }
     }
 
@@ -54,6 +65,9 @@ h4 {
       button {
         width: 150px;
       }
+    }
+    @media screen and (min-width: 600px) {
+      width: 60%;
     }
   }
 }

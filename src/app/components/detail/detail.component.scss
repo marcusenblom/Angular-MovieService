@@ -56,7 +56,7 @@
           outline: none;
           // border-color: rgb(104, 22, 22);
           border: none;
-          transition: 100ms;
+          transition: 1s;
         }
         button:focus {  // Only for design purpose - should be removed in order to make the site more accessible to tab targeting
           outline-color: rgb(104, 22, 22) !important;
@@ -77,6 +77,9 @@
       }
     }
 
+    @media screen and (min-width: 600px) {
+      margin-top: 40px;
+    }
   }
 
 }

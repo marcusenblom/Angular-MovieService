@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import IAdminService from './IAdminService';
 import { Subject } from 'rxjs';
-import { Movie } from '../models/movie';
 import { Order } from '../models/order';
 
 @Injectable({
@@ -12,14 +11,22 @@ export class AdminService implements IAdminService {
 
   orderList: Subject<Order[]> = new Subject<Order[]>();
 
-  readonly apiUrl = "https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=37";
-
   constructor(private http: HttpClient) { }
 
   getOrders(){
 
-    this.http.get(this.apiUrl).subscribe(data => {
+    const apiUrl = `https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=37`;
 
+    this.http.get(apiUrl).subscribe((data: any) => {
+
+        this.orderList.next(data);
+    });
+  }
+
+  removeOrder(id: number){
+    const apiUrl = `https://medieinstitutet-wie-products.azurewebsites.net/api/orders/${id}`;
+
+    this.http.delete(apiUrl).subscribe((data: any) => {
     });
   }
 }

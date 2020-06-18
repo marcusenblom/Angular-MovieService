@@ -6,6 +6,7 @@ export class Movie {
   description: string;
   price: number;
   imageUrl: string;
+  year: number;
   categoryList: Category[];
   amount: number;
 

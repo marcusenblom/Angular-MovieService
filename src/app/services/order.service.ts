@@ -16,8 +16,17 @@ export class OrderService implements IOrderService {
 
   constructor(private http: HttpClient) { }
 
-  // totalPrice: number = 0;
   orderRows: OrderRow[] = [];
+  cartAmount: Subject<number> = new Subject<number>();
+
+  updateCartAmount(){
+    let currentCartItems = JSON.parse(localStorage.getItem("streamnetCart")) || [];
+    let amount: number = 0;
+    currentCartItems.forEach(element => {
+      amount += element.amount;
+    });
+    this.cartAmount.next(amount)
+  }
 
   sendOrder(cartItems: Movie[], userInfo: Customer, totalPrice: number, paymentMethod: string){
 
@@ -31,7 +40,7 @@ export class OrderService implements IOrderService {
       this.orderRows.push(newOrderRow);
     });
 
-    let orderObject: Order = new Order(37, userInfo.firstName, paymentMethod, totalPrice, this.orderRows); // Create new object with cartItems, AdminUser (hard coded) and paymentMethod + loop cartItems to get totalPrice of the order
+    let orderObject: Order = new Order(37, userInfo.firstName + " " + userInfo.lastName, paymentMethod, totalPrice, this.orderRows); // Create new object with cartItems, AdminUser (hard coded) and paymentMethod + loop cartItems to get totalPrice of the order
 
     // HTTP POST
     this.http.post(this.apiUrl, orderObject).subscribe(data => {

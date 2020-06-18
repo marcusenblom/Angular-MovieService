@@ -1,5 +1,5 @@
 
-<h4>Checkout information</h4>
+<h4>Customer information</h4>
 <div class="checkout-form">
   <form [formGroup]="customer">
     <div class="form-group">
@@ -14,15 +14,15 @@
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" formControlName="email" placeholder="email" value="email@mail.com">
     </div>
-
-    <div formGroupName="address">
+    <h5>Adress information</h5>
+    <div formGroupName="address" class="address">
       <div class="form-group">
         <label for="exampleInputEmail1">Street</label>
         <input type="text" class="form-control" formControlName="street" placeholder="street" value="Väg">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Zip code</label>
-        <input type="text" class="form-control" formControlName="zip" placeholder="zip" value="12345">
+        <input type="text" class="zip form-control" formControlName="zip" placeholder="zip" value="12345">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">City</label>

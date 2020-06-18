@@ -1,6 +1,7 @@
 import { OrderRow } from './orderRow';
 
 export class Order {
+  id: any;
   companyId: number;
   createdBy: string;
   paymentMethod: string;

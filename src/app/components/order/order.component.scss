@@ -1,37 +1,48 @@
-div {
+.main-container {
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
 
- .header {
-    text-align: center;
-    margin: 40px 0;
-  }
-
-  .cart-container {
-    width: 100%;
+  .order-container {
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-  }
+    max-width: 1000px;
 
-  .total-price {
-    width: 80%;
-    text-align: end;
-    border-top: 1px solid white;
-    display: flex;
-    justify-content: flex-end;
-
-    span {
-      padding: 10px 0;
+   .header {
+      text-align: center;
+      margin: 40px 0;
     }
-  }
 
-  .empty-cart {
-    width: 100%;
-    text-align: center;
+    .cart-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .total-price {
+      width: 80%;
+      text-align: end;
+      display: flex;
+      justify-content: flex-end;
+
+      span {
+        padding: 10px 0;
+      }
+
+      @media screen and (min-width: 700px) {
+        width: 55%;
+      }
+    }
+
+    .empty-cart {
+      width: 100%;
+      text-align: center;
+    }
+
   }
 
 }

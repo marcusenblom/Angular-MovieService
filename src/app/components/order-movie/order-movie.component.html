@@ -5,10 +5,14 @@
     </a>
   </div>
   <div class="info-container">
-    <p>{{movie.title}} ({{ movie.amount }})</p>
-    <p>{{movie.price}}</p>
-    <p><button (click)="removeFromCart()">Remove me</button></p>
-    <p><button (click)="increaseAmount()">+</button><button (click)="decreaseAmount()">-</button></p>
+    <h4 class="title">{{movie.title}}</h4>
+    <p><span class="smaller">Price: </span>{{movie.price}}</p>
+    <p><span class="smaller">Amount: </span>{{ movie.amount }}</p>
+
+    <p><button class="increase btn btn-dark" (click)="increaseAmount()">+</button><button class="decrease btn btn-dark" (click)="decreaseAmount()">-</button></p>
+  </div>
+  <div class="delete-container">
+    <p><i (click)="removeFromCart()"class="fas fa-trash-alt"></i></p>
   </div>
 
 </div>

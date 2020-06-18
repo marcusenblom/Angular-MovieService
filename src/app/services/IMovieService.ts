@@ -7,4 +7,8 @@ export default interface IMovieService {
 
   getData(): void;
 
+  getSingleMovie(id: string): void;
+
+  getCategories(): void;
+
 }
