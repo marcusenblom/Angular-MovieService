@@ -29,22 +29,4 @@ describe('DetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should call function to add movie to cart', () => {
-
-  //   const newMovie = new Movie;
-  //   newMovie.id = 1;
-  //   newMovie.title = "TestMovie";
-  //   newMovie.description = "TestDescription";
-  //   newMovie.price = 199;
-  //   newMovie.imageUrl = "ImageUrl";
-  //   newMovie.year = 1992;
-  //   newMovie.categoryList = [{categoryId: 5, category: "Action"}];
-  //   newMovie.amount = 1;
-
-  //   component.addToBag(newMovie);
-
-  //   expect(component.addToBag).toHaveBeenCalled();
-  // });
-
-
 });

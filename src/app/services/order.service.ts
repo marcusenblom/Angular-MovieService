@@ -31,7 +31,6 @@ export class OrderService implements IOrderService {
   sendOrder(cartItems: Movie[], userInfo: Customer, totalPrice: number, paymentMethod: string){
 
     cartItems.forEach(product => {
-      // this.totalPrice = this.totalPrice + product.price;
 
       let newOrderRow = new OrderRow;
       newOrderRow.productId = product.id;
@@ -40,7 +39,7 @@ export class OrderService implements IOrderService {
       this.orderRows.push(newOrderRow);
     });
 
-    let orderObject: Order = new Order(37, userInfo.firstName + " " + userInfo.lastName, paymentMethod, totalPrice, this.orderRows); // Create new object with cartItems, AdminUser (hard coded) and paymentMethod + loop cartItems to get totalPrice of the order
+    let orderObject: Order = new Order(37, userInfo.firstName + " " + userInfo.lastName, paymentMethod, totalPrice, this.orderRows); // Create new object with cartItems, AdminUser and paymentMethod + loop cartItems to get totalPrice of the order
 
     // HTTP POST
     this.http.post(this.apiUrl, orderObject).subscribe(data => {

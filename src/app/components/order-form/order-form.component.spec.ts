@@ -30,4 +30,13 @@ describe('OrderFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit userInfo', () => {
+    const spy = spyOn(component.userInfo, "emit");
+
+    component.sendUserInfo();
+
+    expect(spy).toHaveBeenCalled();
+
+  });
 });

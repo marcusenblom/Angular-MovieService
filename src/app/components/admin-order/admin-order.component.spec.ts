@@ -24,4 +24,13 @@ describe('AdminOrderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should remove order', () => {
+  //   const spy = spyOn(component.remove, "emit");
+
+  //   component.removeOrder();
+
+  //   expect(spy).toHaveBeenCalled();
+  // });
+
 });

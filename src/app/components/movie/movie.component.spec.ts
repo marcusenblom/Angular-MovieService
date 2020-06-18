@@ -40,6 +40,7 @@ describe('MovieComponent', () => {
     component.movie = newMovie;
     component.category = 5;
     component.categoryExist = true;
+    // Does not work
 
     expect(component).toBeTruthy();
   });

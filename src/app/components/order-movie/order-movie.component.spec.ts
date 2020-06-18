@@ -49,7 +49,7 @@ describe('OrderMovieComponent', () => {
 
     expect(spy).toHaveBeenCalled();
 
-    // Vad är felet här?
+    // What is wrong here?
   });
 
 });
