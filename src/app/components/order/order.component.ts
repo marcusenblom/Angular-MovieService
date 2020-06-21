@@ -9,6 +9,7 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
+
 export class OrderComponent implements OnInit {
 
   constructor(private service: OrderService) { }

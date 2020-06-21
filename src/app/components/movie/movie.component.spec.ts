@@ -5,6 +5,7 @@ import { MovieComponent } from './movie.component';
 import { MovieService } from 'src/app/services/movie.service';
 import MockMovieService from 'src/app/services/MockMovieService';
 import { Movie } from 'src/app/models/movie';
+import { Component } from '@angular/core';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -26,24 +27,25 @@ describe('MovieComponent', () => {
   });
 
   it('should create', () => {
-
-    const newMovie = new Movie;
-    newMovie.id = 1;
-    newMovie.title = "TestMovie";
-    newMovie.description = "TestDescription";
-    newMovie.price = 199;
-    newMovie.imageUrl = "ImageUrl";
-    newMovie.year = 1992;
-    newMovie.categoryList = [{categoryId: 5, category: "Action"}];
-    newMovie.amount = 1;
-
-    component.movie = newMovie;
-    component.category = 5;
-    component.categoryExist = true;
-    // Does not work
-
     expect(component).toBeTruthy();
   });
 
+  it('should set categoryExist to true if category matches', () => {
 
+    let movie: Movie = {id: 1,
+      title: "Title",
+      description: "Description",
+      price: 199,
+      imageUrl: "ImgUrl",
+      year: 1992,
+      categoryList: [{categoryId: 5, category: "Action"}],
+      amount: 1}
+
+    component.movie = movie;
+    component.category = 5;
+
+    component.checkIfCategoryIsTrue();
+
+    expect(component.categoryExist).toBeTrue();
+  });
 });
