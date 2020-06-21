@@ -2,10 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from "@angular/router/testing";
 import { MovieComponent } from './movie.component';
-import { MovieService } from 'src/app/services/movie.service';
-import MockMovieService from 'src/app/services/MockMovieService';
 import { Movie } from 'src/app/models/movie';
-import { Component } from '@angular/core';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -14,8 +11,7 @@ describe('MovieComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MovieComponent ],
-      imports: [ HttpClientTestingModule, RouterTestingModule ],
-      providers: [MovieComponent, { provide: MovieService, useClass: MockMovieService }]
+      imports: [ HttpClientTestingModule, RouterTestingModule ]
     })
     .compileComponents();
   }));

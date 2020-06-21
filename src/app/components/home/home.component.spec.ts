@@ -27,4 +27,9 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get movies', () => {
+    expect(component.movies.length).toBeGreaterThan(0);
+  });
+
 });

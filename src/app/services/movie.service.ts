@@ -13,8 +13,10 @@ export class MovieService implements IMovieService{
   movieList: Subject<Movie[]> = new Subject<Movie[]>();
   singleMovie: Subject<Movie> = new Subject<Movie>();
   categories: Subject<Category[]> = new Subject<Category[]>();
+  searchData: Subject<Movie[]> = new Subject<Movie[]>();
 
   constructor(private http: HttpClient) { }
+
 
   getData(){
 
@@ -110,5 +112,28 @@ export class MovieService implements IMovieService{
     });
   };
 
+  getSearchData(search: string){    // Still error messages in console. Will fix after deadline.
+
+    this.http.get(`https://medieinstitutet-wie-products.azurewebsites.net/api/search?=${search}`).subscribe((data: any) => {
+
+      const moviesFromApi: Movie[] = data.map((movie: any) => {
+
+        const newMovie = new Movie();
+        newMovie.id = movie.id;
+        newMovie.title = movie.name;
+        newMovie.description = movie.description;
+        newMovie.price = movie.price;
+        newMovie.imageUrl = movie.imageUrl;
+        newMovie.year = movie.year;
+        newMovie.categoryList = [];
+        newMovie.amount = 1;
+
+        return newMovie;
+      });
+
+      this.searchData.next(moviesFromApi);
+
+    });
+  }
 
 }

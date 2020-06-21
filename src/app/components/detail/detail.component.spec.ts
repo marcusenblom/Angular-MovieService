@@ -2,9 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from "@angular/router/testing";
 import { DetailComponent } from './detail.component';
-import MockMovieService from 'src/app/services/MockMovieService';
-import { MovieService } from 'src/app/services/movie.service';
-import { Movie } from 'src/app/models/movie';
 
 describe('DetailComponent', () => {
   let component: DetailComponent;
@@ -13,8 +10,7 @@ describe('DetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DetailComponent ],
-      imports: [ HttpClientTestingModule, RouterTestingModule ],
-      providers: [DetailComponent, { provide: MovieService, useClass: MockMovieService }]
+      imports: [ HttpClientTestingModule, RouterTestingModule ]
     })
     .compileComponents();
   }));

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from "@angular/router/testing";
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { OrderMovieComponent } from './components/order-movie/order-movie.compon
 import { OrderFormComponent } from './components/order-form/order-form.component';
 import { AdminOrderComponent } from './components/admin-order/admin-order.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     OrderMovieComponent,
     OrderFormComponent,
     AdminOrderComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

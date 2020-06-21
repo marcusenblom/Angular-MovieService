@@ -18,27 +18,48 @@ nav {
     text-decoration: underline;
   }
 
-  a {
+  .icons {
     position: relative;
-    .cart {
-      width: 40px;
-      color: white;
-      transition: 100ms;
-    }
-    .cart:hover {
-      width: 44px;
-    }
-    .badge {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .search-a {
       position: absolute;
-      right: -16px;
-      top: 0;
-      width: 16px;
-      height: 16px;
-      font-size: 0.7rem;
-      padding: 0;
-      line-height: 1.6;
+      right: 80px;
+
+      .search {
+        width: 30px;
+      }
+      .search:hover {
+        width: 34px;
+      }
+    }
+
+    .cart-a {
+      position: relative;
+      height: 35px;
+      .cart {
+        width: 35px;
+        color: white;
+        transition: 100ms;
+      }
+      .cart:hover {
+        width: 40px;
+      }
+      .badge {
+        position: absolute;
+        right: -16px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        font-size: 0.7rem;
+        padding: 0;
+        line-height: 1.6;
+      }
     }
   }
+
 
   .logo {
     width: auto;

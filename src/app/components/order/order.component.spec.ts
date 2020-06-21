@@ -43,4 +43,42 @@ describe('OrderComponent', () => {
     expect(component.currentCartItems.length).toEqual(0);
   });
 
+  it('should increase amount on movie object', () => {
+    let movie: Movie = {id: 1,
+      title: "Title",
+      description: "Description",
+      price: 199,
+      imageUrl: "ImgUrl",
+      year: 1992,
+      categoryList: [{categoryId: 5, category: "Action"}],
+      amount: 1
+    };
+    let movieAmountFromStart = movie.amount;
+
+    component.currentCartItems = [movie];
+
+    component.increaseAmount(movie);
+
+    expect(movie.amount).toEqual(movieAmountFromStart + 1);
+  });
+
+  it('should decrease amount on movie object', () => {
+    let movie: Movie = {id: 1,
+      title: "Title",
+      description: "Description",
+      price: 199,
+      imageUrl: "ImgUrl",
+      year: 1992,
+      categoryList: [{categoryId: 5, category: "Action"}],
+      amount: 2
+    };
+    let movieAmountFromStart = movie.amount;
+
+    component.currentCartItems = [movie];
+
+    component.decreaseAmount(movie);
+
+    expect(movie.amount).toEqual(movieAmountFromStart - 1);
+  });
+
 });

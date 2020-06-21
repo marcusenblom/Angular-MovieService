@@ -3,6 +3,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from "@angular/router/testing";
 import { AdminComponent } from './admin.component';
 import { Order } from 'src/app/models/order';
+import { OrderService } from 'src/app/services/order.service';
+import { AdminService } from 'src/app/services/admin.service';
+import { MockAdminService } from 'src/app/services/MockAdminService';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -11,7 +14,8 @@ describe('AdminComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AdminComponent ],
-      imports: [ HttpClientTestingModule, RouterTestingModule ]
+      imports: [ HttpClientTestingModule, RouterTestingModule ],
+      providers: [ AdminComponent, { provide: AdminService, useClass: MockAdminService } ]
     })
     .compileComponents();
   }));
@@ -26,28 +30,8 @@ describe('AdminComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should remove order', () => {
-
-    let order: Order = {
-      id: 1,
-      companyId: 37,
-      createdBy: "Test",
-      paymentMethod: "Test Visa",
-      totalPrice: 199,
-      orderRows: [
-        {productId: 1,
-        amount: 3}
-      ]
-    }
-
-    component.orderList = [order];
-
-    expect(component.orderList.length).toEqual(1);
-
-    component.removeOrder(order);
-
-    expect(component.orderList.length).toBeLessThan(1);
+  it('should get orders', () => {
+    expect(component.orderList.length).toBeGreaterThan(0);
   });
-
 
 });
