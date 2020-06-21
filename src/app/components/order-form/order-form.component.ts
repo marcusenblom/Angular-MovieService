@@ -13,6 +13,8 @@ export class OrderFormComponent implements OnInit {
 
   @Output() userInfo: EventEmitter<OrderForm> = new EventEmitter<OrderForm>();
 
+  // NOTE: This form is not yet validated correctly. Needs to be done
+
   customer = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],

@@ -1,20 +1,22 @@
-<div class="search-container">
-  <input type="text" #search (keyup)="getSearch(search.value)" placeholder="Search movie...">
-</div>
+<section *ngIf="movies">
+  <div class="search-container">
+    <input type="text" #search (keyup)="getSearch(search.value)" placeholder="Search movie...">
+  </div>
 
-<h4 class="header" *ngIf="firstVisit">Type in the box above to search for a movie</h4>
+  <h4 class="header" *ngIf="firstVisit">Type in the box above to search for a movie</h4>
 
-<h4 class="header" *ngIf="movies && movies.length > 0; else empty">Search results</h4>
-<div class="movies-container">
-  <div class="movie" *ngFor="let movie of movies">
-    <div class="img-container">
-      <a routerLink="/detail/{{ movie.id }}">
-        <img [src]="movie.imageUrl" alt="movie-poster">
-      </a>
+  <h4 class="header" *ngIf="movies && movies.length > 0; else empty">Search results</h4>
+  <div class="movies-container">
+    <div class="movie" *ngFor="let movie of movies">
+      <div class="img-container">
+        <a routerLink="/detail/{{ movie.id }}">
+          <img [src]="movie.imageUrl" alt="movie-poster">
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<ng-template #empty>
-    <h4 *ngIf="movies.length < 1" class="header">No movies matches your result</h4>
-</ng-template>
+  <ng-template #empty>
+      <h4 *ngIf="movies.length < 1" class="header">No movies matches your result</h4>
+  </ng-template>
+</section>

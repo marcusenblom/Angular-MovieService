@@ -4,6 +4,10 @@ import IMovieService from './IMovieService';
 import { Category } from '../models/category';
 
 export default class MockMovieService implements IMovieService{
+  searchData: Subject<Movie[]>;
+  getSearchData(search: string) {
+    throw new Error("Method not implemented.");
+  }
 
 
   private testMovies: Movie[] = [
